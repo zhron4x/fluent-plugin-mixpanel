@@ -1,7 +1,7 @@
 require 'fluent/plugin/in_http'
 require 'base64'
 
-class Fluent::HttpMixpanelInput < Fluent::HttpInput
+class Fluent::HttpMixpanelInput < Fluent::Plugin::HttpInput
   Fluent::Plugin.register_input('http_mixpanel', self)
 
   config_param :tag_prefix, :default => 'mixpanel'
