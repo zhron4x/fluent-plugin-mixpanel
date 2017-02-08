@@ -9,6 +9,7 @@ class Fluent::HttpMixpanelInput < Fluent::HttpInput
   def on_request(path_info, params)
     data = Base64.decode64(params['data']).force_encoding('utf-8')
     json = JSON.parse(data)
+    binding.pry
     props = json['properties']
     path = "/#{tag_prefix}.#{json['event']}"
     params['json'] = props.to_json
